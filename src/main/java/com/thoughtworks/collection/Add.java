@@ -3,22 +3,48 @@ package com.thoughtworks.collection;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
-        throw new NotImplementedException();
+        int sumOfEvens = 0;
+        int start = leftBorder;
+        int end = rightBorder;
+        if (leftBorder > rightBorder) {
+            start = rightBorder;
+            end = leftBorder;
+        }
+       for(int i = start; i <= end; i++){
+           if(i % 2 == 0)  sumOfEvens += i;
+       }
+       return sumOfEvens;
     }
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
-        throw new NotImplementedException();
+        int sumOfEvens = 0;
+        int start = leftBorder;
+        int end = rightBorder;
+        if (leftBorder > rightBorder) {
+            start = rightBorder;
+            end = leftBorder;
+        }
+        for(int i = start; i <= end; i++){
+            if(i % 2 != 0)  sumOfEvens += i;
+        }
+        return sumOfEvens;
     }
 
     public int getSumTripleAndAddTwo(List<Integer> arrayList) {
-        throw new NotImplementedException();
+       return arrayList.stream()
+               .reduce(0, (subtotal, element) -> subtotal + (element * 3) + 2);
     }
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        List<Integer> collect1 = arrayList.stream()
+                .map(num -> num%2!=0 ? 2+(num*3) : num)
+                .collect(Collectors.toList());
+        return collect1;
+
     }
 
     public int getSumOfProcessedOdds(List<Integer> arrayList) {
