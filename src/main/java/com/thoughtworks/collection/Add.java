@@ -40,15 +40,15 @@ public class Add {
     }
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {
-        List<Integer> collect1 = arrayList.stream()
+        return arrayList.stream()
                 .map(num -> num%2!=0 ? 2+(num*3) : num)
                 .collect(Collectors.toList());
-        return collect1;
-
     }
 
     public int getSumOfProcessedOdds(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return arrayList.stream()
+                .filter(f -> f%2 != 0)
+                .reduce(0,(subtotal, element)-> subtotal + (element * 3) + 5);
     }
 
 //    public double getMedianOfEven(List<Integer> arrayList) {
