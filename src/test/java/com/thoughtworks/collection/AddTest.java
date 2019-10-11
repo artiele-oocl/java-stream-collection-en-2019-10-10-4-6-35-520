@@ -97,21 +97,21 @@ public class AddTest {
         Add add = new Add();
         assertThat(add.getAverageOfEven(arrayList)).isEqualTo((double) 3);
     }
-//
-//    @Test
-//    public void should_return_whether_include_special_element() {
-//        // Finds whether an array of all even numbers in the array contains a specific number specialElment
-//        Integer[] array = new Integer[]{1, 2, 3, 4, 5};
-//        List<Integer> arrayList = Arrays.asList(array);
-//
-//        Add add = new Add();
-//
-//        Integer existedElment = 3;
-//        assertThat(add.isIncludedInEvenIndex(arrayList, existedElment)).isEqualTo(false);
-//
-//        Integer unexistedElment = 2;
-//        assertThat(add.isIncludedInEvenIndex(arrayList, unexistedElment)).isEqualTo(true);
-//    }
+
+    @Test
+    public void should_return_whether_include_special_element() {
+        // Finds whether an array of all even numbers in the array contains a specific number specialElment
+        Integer[] array = new Integer[]{1, 2, 3, 4, 5};
+        List<Integer> arrayList = Arrays.asList(array);
+
+        Add add = new Add();
+
+        Integer existedElment = 3;
+        assertThat(add.isIncludedInEvenIndex(arrayList, existedElment)).isEqualTo(false);
+
+        Integer unexistedElment = 2;
+        assertThat(add.isIncludedInEvenIndex(arrayList, unexistedElment)).isEqualTo(true);
+    }
 
     @Test
     public void should_return_unrepeated_elements_from_evens() {
