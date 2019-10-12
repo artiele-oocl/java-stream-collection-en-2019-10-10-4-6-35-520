@@ -2,10 +2,7 @@ package com.thoughtworks.collection;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -80,16 +77,18 @@ public class Add {
     }
 
     public boolean isIncludedInEvenIndex(List<Integer> arrayList, Integer specialElment) {
-        throw new NotImplementedException();
+        return specialElment % 2 == 0 && arrayList.stream().filter(f -> f % 2 == 0).collect(Collectors.toList()).contains(specialElment);
     }
 
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return arrayList.stream().filter(f->f%2==0).distinct().collect(Collectors.toList());
     }
 
-//    public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
-//        throw new NotImplementedException();
-//    }
+    public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
+        Stream<Integer> even = arrayList.stream().filter(f->f%2==0).sorted();
+        Stream<Integer> odd = arrayList.stream().filter(f->f%2!=0).sorted(Comparator.reverseOrder());
+        return Stream.concat(even,odd).collect(Collectors.toList());
+    }
 
     public List<Integer> getProcessedList(List<Integer> arrayList) {
         List<Integer> result = new ArrayList<>();

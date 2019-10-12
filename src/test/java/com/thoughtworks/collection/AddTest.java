@@ -126,17 +126,17 @@ public class AddTest {
         assertThat(add.getUnrepeatedFromEvenIndex(arrayList)).isEqualTo(resultList);
     }
 
-//    @Test
-//    public void should_sort_by_even_and_odd() {
-//        //Sort the array so that the even number of the array is incremented first, and the odd number is decremented
-//        Add add = new Add();
-//
-//        Integer[] array = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8};
-//        List<Integer> arrayList = Arrays.asList(array);
-//
-//        Integer[] result = new Integer[]{2, 4, 6, 8, 7, 5, 3, 1};
-//        List<Integer> resultList = Arrays.asList(result);
-//
-//        assertThat(add.sortByEvenAndOdd(arrayList)).isEqualTo(resultList);
-//    }
+    @Test
+    public void should_sort_by_even_and_odd() {
+        //Sort the array so that the even number of the array is incremented first, and the odd number is decremented
+        Add add = new Add();
+
+        Integer[] array = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8};
+        List<Integer> arrayList = Arrays.asList(array);
+
+        Integer[] result = new Integer[]{2, 4, 6, 8, 7, 5, 3, 1};
+        List<Integer> resultList = Arrays.asList(result);
+
+        assertThat(add.sortByEvenAndOdd(arrayList)).isEqualTo(resultList);
+    }
 }
