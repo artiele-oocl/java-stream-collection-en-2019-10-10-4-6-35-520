@@ -33,7 +33,28 @@ public class MyMap {
     }
 
     public List<String> mapLetters() {
-        throw new NotImplementedException();
+        List<String> mapLetters = new ArrayList<>();
+        array.forEach(m-> {
+            String letter = "";
+            String prefix = "";
+            if (m>26){
+                int bound = m;
+                while (bound >26) {
+                    bound = m%26;
+                }
+                if (m > 52){
+                    letter = "b".concat(letterList.get(Math.abs(bound-1)));
+                } else if(m == 52) {
+                    letter = "a".concat(letterList.get(Math.abs(26-1)));
+                } else {
+                    letter = "a".concat(letterList.get(Math.abs(bound-1)));
+                }
+            } else {
+                letter = letterList.get(m-1);
+            }
+            mapLetters.add(letter);
+        });
+        return mapLetters;
     }
 
     public List<Integer> sortFromBig() {
