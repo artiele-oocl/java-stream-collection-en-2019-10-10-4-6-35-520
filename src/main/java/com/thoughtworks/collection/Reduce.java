@@ -2,7 +2,10 @@ package com.thoughtworks.collection;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Reduce {
 
@@ -13,42 +16,52 @@ public class Reduce {
     }
 
     public int getMaximum() {
-        throw new NotImplementedException();
+        return arrayList.stream().max(Integer::compare).get();
     }
 
     public double getMinimum() {
-        throw new NotImplementedException();
+        return arrayList.stream().min(Integer::compare).get();
     }
 
     public double getAverage() {
-        throw new NotImplementedException();
+        return (double) arrayList.stream().reduce(0, Integer::sum)/arrayList.size();
     }
 
     public double getOrderedMedian() {
-        throw new NotImplementedException();
+        if (arrayList.size() % 2 == 0) {
+            int sumOfMiddleElements = arrayList.get(arrayList.size() / 2) + arrayList.get(arrayList.size() / 2 - 1);
+            return ((double) sumOfMiddleElements) / 2;
+        } else {
+            return (double) arrayList.get(arrayList.size() / 2);
+        }
     }
 
     public int getFirstEven() {
-        throw new NotImplementedException();
+        return arrayList.stream().filter(f->f%2==0).findFirst().get();
     }
 
     public int getIndexOfFirstEven() {
-        throw new NotImplementedException();
+        return arrayList.indexOf(arrayList.stream().filter(f->f%2==0).findFirst().get());
     }
 
     public boolean isEqual(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return this.arrayList == arrayList;
     }
 
     public Double getMedianInLinkList(SingleLink singleLink) {
-        throw new NotImplementedException();
+        if (arrayList.size()%2==0) {
+            int sumOfMiddleElements = arrayList.get(arrayList.size() / 2) + arrayList.get(arrayList.size() / 2 - 1);
+            return ((double) sumOfMiddleElements) / 2;
+        } else {
+            return (double) arrayList.get(arrayList.size() / 2);
+        }
     }
 
     public int getLastOdd() {
-        throw new NotImplementedException();
+        return arrayList.stream().reduce((first, second) -> second).orElse(-1);
     }
 
     public int getIndexOfLastOdd() {
-        throw new NotImplementedException();
+        return arrayList.indexOf(arrayList.stream().reduce((first, second) -> second).orElse(-1));
     }
 }
